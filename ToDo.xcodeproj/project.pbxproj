@@ -15,6 +15,7 @@
 		753413D8297F579900FF759A /* ToDo_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753413D7297F579900FF759A /* ToDo_Watch_AppTests.swift */; };
 		753413E2297F579900FF759A /* ToDo_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753413E1297F579900FF759A /* ToDo_Watch_AppUITests.swift */; };
 		753413E4297F579900FF759A /* ToDo_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753413E3297F579900FF759A /* ToDo_Watch_AppUITestsLaunchTests.swift */; };
+		758B27032983447E000388B4 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B27022983447E000388B4 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		753413DD297F579900FF759A /* ToDo Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDo Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		753413E1297F579900FF759A /* ToDo_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		753413E3297F579900FF759A /* ToDo_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		758B27022983447E000388B4 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +120,9 @@
 		753413C5297F579800FF759A /* ToDo Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				758B27012983442B000388B4 /* View */,
+				758B270029834423000388B4 /* Model */,
 				753413C6297F579800FF759A /* ToDoApp.swift */,
-				753413C8297F579800FF759A /* ContentView.swift */,
 				753413CA297F579900FF759A /* Assets.xcassets */,
 				753413CC297F579900FF759A /* Preview Content */,
 			);
@@ -149,6 +152,22 @@
 				753413E3297F579900FF759A /* ToDo_Watch_AppUITestsLaunchTests.swift */,
 			);
 			path = "ToDo Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		758B270029834423000388B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				758B27022983447E000388B4 /* Note.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		758B27012983442B000388B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				753413C8297F579800FF759A /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +330,7 @@
 			files = (
 				753413C9297F579800FF759A /* ContentView.swift in Sources */,
 				753413C7297F579800FF759A /* ToDoApp.swift in Sources */,
+				758B27032983447E000388B4 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
