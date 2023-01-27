@@ -54,59 +54,64 @@ struct ContentView: View {
     
     // MARK: - BODY
     
-    
     var body: some View {
-        VStack {
-            HStack(alignment: .center, spacing: 6) {
-                TextField("Dodaj wpis...", text: $text)
-                
-                Button {
-                    if text.isEmpty {
-                        return
+        NavigationView {
+            VStack {
+                HStack(alignment: .center, spacing: 6) {
+                    TextField("Dodaj wpis...", text: $text)
+                    
+                    Button {
+                        if text.isEmpty {
+                            return
+                        }
+                        let note = Note(id: UUID(), text: text)
+                        notes.append(note)
+                        text = ""
+                        save()
+                    } label: {
+                        Image(systemName: "square.and.pencil").font(.system(size: 30, weight: .semibold))
                     }
-                    let note = Note(id: UUID(), text: text)
-                    notes.append(note)
-                    text = ""
-                    save()
-                } label: {
-                    Image(systemName: "plus.circle").font(.system(size: 42, weight: .semibold))
+                    .fixedSize()
+                    .buttonStyle(PlainButtonStyle())
+                    .foregroundColor(.cyan)
+                    //                .buttonStyle(BorderedButtonStyle(tint: .accentColor))
+                }.padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0)) // hstack
+                Spacer()
+                
+                if notes.count >= 1 {
+                    List {
+                        ForEach(0..<notes.count, id: \.self) { i in
+                            HStack {
+                                NavigationLink(destination: NoteView(note: notes[i], count: notes.count, index: i))
+                                {
+                                    Capsule()
+                                        .frame(width: 10)
+                                        .foregroundColor(.cyan)
+                                    Text(notes[i].text)
+                                        .lineLimit(1)
+                                        .padding(.leading, 5)
+                                }
+                            }
+                        } // loop
+                        .onDelete(perform: delete)
+                    } // list
                 }
-                .fixedSize()
-                .buttonStyle(PlainButtonStyle())
-                .foregroundColor(.accentColor)
-                //                .buttonStyle(BorderedButtonStyle(tint: .accentColor))
-            } // hstack
-            Spacer()
-            if notes.count >= 1 {
-                List {
-                    ForEach(0..<notes.count, id: \.self) { i in
-                        HStack {
-                            Capsule()
-                                .frame(width: 10)
-                                .foregroundColor(.accentColor)
-                            Text(notes[i].text)
-                                .lineLimit(1)
-                                .padding(.leading, 5)
-                        } // hstack
-                    } // loop
-                    .onDelete(perform: delete)
-                } // list
-            }
-            else
-            {
-                Spacer()
-                Image(systemName: "note.text")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.gray)
-                    .opacity(0.25)
-                    .padding(40)
-                Spacer()
-            }
-            
-        } // vstack
+                else
+                {
+                    Spacer()
+                    Image(systemName: "note.text")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.gray)
+                        .opacity(0.25)
+                        .padding(40)
+                    Spacer()
+                }
+                
+            } // vstack
+            .onAppear(perform: {load() })
+        }
         .navigationTitle("Notatnik")
-        .onAppear(perform: {load() })
     }
 }
 
