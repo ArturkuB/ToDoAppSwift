@@ -17,17 +17,12 @@ struct NoteView: View {
     
     // MARK: - BODY
     
+    @State private var isInfoPresented: Bool = false
+    
     var body: some View {
         VStack(alignment: .center, spacing: 3) {
-            HStack {
-                Capsule()
-                    .frame(height: 1)
-                Image(systemName: "note.text")
-                
-                Capsule()
-                    .frame(height: 1)
-            }
-            .foregroundColor(.cyan)
+         
+            HeaderView(title: "")
             
             Spacer()
             
@@ -50,6 +45,12 @@ struct NoteView: View {
                 
                 Image(systemName: "info.circle")
                     .imageScale(.large)
+                    .onTapGesture {
+                        isInfoPresented.toggle()
+                    }
+                    .sheet(isPresented: $isInfoPresented, content: {
+                        InfoView(date: note.date)
+                    })
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: -25, trailing: 0))
             .foregroundColor(.secondary)
@@ -61,7 +62,7 @@ struct NoteView: View {
 // MARK: - Preview
 
 struct NoteView_Previews: PreviewProvider {
-    static var sampleData: Note = Note(id: UUID(), text: "Przykladowy tekst")
+    static var sampleData: Note = Note(id: UUID(), text: "Przykladowy tekst", date: "20-01-2023")
     
     static var previews: some View {
         NoteView(note: sampleData, count: 5, index: 1)

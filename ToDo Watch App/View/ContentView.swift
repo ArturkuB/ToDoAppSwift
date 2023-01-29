@@ -20,6 +20,7 @@ struct ContentView: View {
     
     func save() {
         do {
+            print(notes)
             let data = try JSONEncoder().encode(notes)
             let url = getDocumentDirectory().appendingPathComponent("notes")
             try data.write(to: url)
@@ -64,12 +65,16 @@ struct ContentView: View {
                         if text.isEmpty {
                             return
                         }
-                        let note = Note(id: UUID(), text: text)
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+                        dateFormatter.locale = Locale(identifier: "pl_PL")
+                        let dateString = dateFormatter.string(from: Date())
+                        let note = Note(id: UUID(), text: text, date: dateString)
                         notes.append(note)
                         text = ""
                         save()
                     } label: {
-                        Image(systemName: "square.and.pencil").font(.system(size: 30, weight: .semibold))
+                        Image(systemName: "plus.square.on.square").font(.system(size: 30, weight: .semibold))
                     }
                     .fixedSize()
                     .buttonStyle(PlainButtonStyle())
