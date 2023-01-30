@@ -18,6 +18,7 @@ struct NoteView: View {
     // MARK: - BODY
     
     @State private var isInfoPresented: Bool = false
+    @State private var isSettingsPresented: Bool = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 3) {
@@ -36,10 +37,24 @@ struct NoteView: View {
             HStack(alignment: .center) {
                 Image(systemName: "gear")
                     .imageScale(.large)
+                    .onTapGesture {
+                        isSettingsPresented.toggle()
+                    }
+                    .sheet(isPresented: $isSettingsPresented, content: {
+                        SettingsView()
+                            .toolbar(content: {
+                                ToolbarItem(placement: .cancellationAction) {
+                                    Button("Zamknij") {
+                                        self.isSettingsPresented = false
+                                    }
+                                }
+                            })
+                    })
+                
                 
                 Spacer()
                 
-                Text("\(count) / \(index + 1)")
+                Text("\(index + 1) / \(count)")
                 
                 Spacer()
                 
@@ -50,6 +65,13 @@ struct NoteView: View {
                     }
                     .sheet(isPresented: $isInfoPresented, content: {
                         InfoView(date: note.date)
+                            .toolbar(content: {
+                                ToolbarItem(placement: .cancellationAction) {
+                                    Button("Zamknij") {
+                                        self.isInfoPresented = false
+                                    }
+                                }
+                            })
                     })
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: -25, trailing: 0))

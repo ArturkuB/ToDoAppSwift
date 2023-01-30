@@ -17,6 +17,7 @@
 		753413E4297F579900FF759A /* ToDo_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753413E3297F579900FF759A /* ToDo_Watch_AppUITestsLaunchTests.swift */; };
 		753F8B6D298608CF00F3B8AA /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753F8B6C298608CF00F3B8AA /* InfoView.swift */; };
 		753F8B70298609B500F3B8AA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753F8B6F298609B500F3B8AA /* HeaderView.swift */; };
+		757DB49C2987508300FB00AB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DB49B2987508300FB00AB /* SettingsView.swift */; };
 		758B27032983447E000388B4 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B27022983447E000388B4 /* Note.swift */; };
 		75DFA42229845E7100599B6C /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DFA42129845E7100599B6C /* NoteView.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		753413E3297F579900FF759A /* ToDo_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		753F8B6C298608CF00F3B8AA /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		753F8B6F298609B500F3B8AA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		757DB49B2987508300FB00AB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		758B27022983447E000388B4 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		75DFA42129845E7100599B6C /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +185,7 @@
 				753413C8297F579800FF759A /* ContentView.swift */,
 				75DFA42129845E7100599B6C /* NoteView.swift */,
 				753F8B6C298608CF00F3B8AA /* InfoView.swift */,
+				757DB49B2987508300FB00AB /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757DB49C2987508300FB00AB /* SettingsView.swift in Sources */,
 				753413C9297F579800FF759A /* ContentView.swift in Sources */,
 				753F8B70298609B500F3B8AA /* HeaderView.swift in Sources */,
 				753413C7297F579800FF759A /* ToDoApp.swift in Sources */,
